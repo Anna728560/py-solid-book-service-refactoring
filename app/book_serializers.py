@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 import json
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ET  # noqa
 
 from app.book import Book
 
@@ -17,7 +17,12 @@ class JsonSerializer(BookSerializer):
         self.book = book
 
     def serialize(self) -> str:
-        return json.dumps({"title": self.book.title, "content": self.book.content})
+        return json.dumps(
+            {
+                "title": self.book.title,
+                "content": self.book.content
+            }
+        )
 
 
 class XmlSerializer(BookSerializer):
